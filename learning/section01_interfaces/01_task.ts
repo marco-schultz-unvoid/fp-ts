@@ -1,5 +1,9 @@
-// Task: Task<A> represents an asynchronous computation that yields a value of type A
-// and never fails.
+// https://gcanti.github.io/fp-ts/modules/Task.ts.html
+
+/* 
+  Task: Task<A> represents an asynchronous computation that yields a value of type A
+  and never fails. 
+*/
 
 import { Task } from 'fp-ts/lib/Task';
 
