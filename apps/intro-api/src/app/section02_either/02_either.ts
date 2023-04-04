@@ -14,7 +14,7 @@ import { Either, isLeft, left, right } from 'fp-ts/lib/Either';
   Either to implement it
 */
 const executeDivide = (n1: number, n2: number): Either<Error, number> => {
-  // If dividing by 0, return left
+  // If dividing by 0, return left instead of throwing error
   if (n2 === 0) {
     return left(new Error('Cannot divide by 0!'));
   }
@@ -42,4 +42,10 @@ export const divide = (req: Request, res: Response) => {
 /**
  * Note: We have to access result.left or result.right to get the value, otherwise it will
  * return an object with _tag and left or right property
+ */
+
+/**
+ * Extra: Either is not just a type, it is a concept called Monad in functional programming
+ *
+ * https://en.wikipedia.org/wiki/Monad_(functional_programming)
  */

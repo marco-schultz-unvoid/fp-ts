@@ -56,3 +56,9 @@ export const getPersonByName = (req: Request, res: Response) => {
   // We can access the value property to get the person
   return res.status(200).json(Person.value);
 };
+
+/**
+ * Extra: Option is not just a type, it is a concept called Monad in functional programming
+ *
+ * https://en.wikipedia.org/wiki/Monad_(functional_programming)
+ */

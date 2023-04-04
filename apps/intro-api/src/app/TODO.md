@@ -9,8 +9,8 @@
   - [ ] map
   - [ ] mapLeft
   - [ ] fold
-- [ ] TaskEither:
-  - [ ] tryCatch => Wraps a promise that can be rejected into a promise that can never be rejected and that returns an Either
+- [x] TaskEither:
+  - [x] tryCatch => Wraps a promise that can be rejected into a promise that can never be rejected and that returns an Either
   - [ ] tryCatchK => Converts a function returning a Promise to one returning a TaskEither
   - [ ] map
   - [ ] chain

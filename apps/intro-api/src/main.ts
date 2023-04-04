@@ -4,11 +4,10 @@
  */
 
 import * as express from 'express';
-import { isLeft } from 'fp-ts/lib/Either';
 import * as path from 'path';
-import { makeGetCharacters } from './app/makeGetCharacters';
 import { getPersonByName } from './app/section01_option/01_option';
 import { divide } from './app/section02_either/02_either';
+import { getCharacters } from './app/section03_task/02_taskEither';
 
 const app = express();
 
@@ -21,18 +20,7 @@ app.get('/people/:name', getPersonByName);
 app.get('/divide/:n1/:n2', divide);
 
 // TaskEither
-app.get('/characters', async (req, res) => {
-  const getCharacters = makeGetCharacters();
-  const characters = await getCharacters();
-
-  if (isLeft(characters)) {
-    return res
-      .status(500)
-      .json({ error: { message: characters.left.message } });
-  } else {
-    return res.status(200).json(characters.right);
-  }
-});
+app.get('/characters', getCharacters);
 
 const port = process.env.port || 3333;
 const server = app.listen(port, () => {
