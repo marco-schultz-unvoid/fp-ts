@@ -6,26 +6,21 @@
 import * as express from 'express';
 import { isLeft } from 'fp-ts/lib/Either';
 import * as path from 'path';
-import { divide } from './app/divide';
 import { makeGetCharacters } from './app/makeGetCharacters';
+import { getPersonByName } from './app/section01_option/01_option';
+import { divide } from './app/section02_either/02_either';
 
 const app = express();
 
 app.use('/assets', express.static(path.join(__dirname, 'assets')));
 
-app.get('/divide/:n1/:n2', (req, res) => {
-  const n1 = Number(req.params['n1']);
-  const n2 = Number(req.params['n2']);
+// Option
+app.get('/people/:name', getPersonByName);
 
-  const result = divide(n1, n2);
+//  Either
+app.get('/divide/:n1/:n2', divide);
 
-  if (isLeft(result)) {
-    return res.status(500).json({ error: result.left });
-  } else {
-    return res.status(200).send({ result: result.right });
-  }
-});
-
+// TaskEither
 app.get('/characters', async (req, res) => {
   const getCharacters = makeGetCharacters();
   const characters = await getCharacters();
