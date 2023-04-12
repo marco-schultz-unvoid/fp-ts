@@ -13,11 +13,11 @@ import { Request, Response } from 'express';
 import { Option, isNone, none, some, toNullable } from 'fp-ts/lib/Option';
 import { isNil } from 'lodash';
 
-export type Person = {
+type Person = {
   readonly name: string;
 };
 
-const people: Person[] = [
+const PEOPLE: Person[] = [
   { name: 'Marco' },
   { name: 'Tom' },
   { name: 'Robert' },
@@ -29,7 +29,7 @@ const people: Person[] = [
   use Option here 
 */
 const executeGetPersonByName = (name: string): Option<Person> => {
-  const foundPerson = people.find(
+  const foundPerson = PEOPLE.find(
     (Person) => Person.name.toLowerCase() === name.toLowerCase()
   );
 
@@ -47,7 +47,7 @@ export const getPersonByName = (req: Request, res: Response) => {
 
   const Person = executeGetPersonByName(PersonName);
 
-  // If option value is none, we could also use isSome instea0d
+  // If option value is none, we could also use isSome instead
   if (isNone(Person)) {
     // toNullable => converts Option to a nullable variable. There is also fromNullable, which does the opposite
     return res.status(200).json(toNullable(Person));
@@ -59,6 +59,8 @@ export const getPersonByName = (req: Request, res: Response) => {
 
 /**
  * Extra: Option is not just a type, it is a concept called Monad in functional programming
+ *
+ * Monad is a complicated concept, but basically, it is a type and a set of functions that helps us operate over that type.
  *
  * https://en.wikipedia.org/wiki/Monad_(functional_programming)
  */

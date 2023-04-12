@@ -40,12 +40,17 @@ export const divide = (req: Request, res: Response) => {
 };
 
 /**
- * Note: We have to access result.left or result.right to get the value, otherwise it will
- * return an object with _tag and left or right property
+ * Notes:
+ *  - We have to access result.left or result.right to get the value, otherwise it will
+ *  return an object with _tag and left or right property
+ *  - These functions also exist for other monads, like TaskOption.fromEither
  */
 
 /**
  * Extra: Either is not just a type, it is a concept called Monad in functional programming
+ *
+ * Monad is a complicated concept, but basically, it is a type and a set of functions that
+ * helps us operate over that type.
  *
  * https://en.wikipedia.org/wiki/Monad_(functional_programming)
  */

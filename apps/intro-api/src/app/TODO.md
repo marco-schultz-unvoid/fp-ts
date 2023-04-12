@@ -2,12 +2,20 @@
 
 - [x] Option:
   - [x] some & none
-  - [x] fromNullable, toNullable
+  - [x] fromNullable, toNullable, toUndefined
+  - [x] fromEither
+  - [x] fromPredicate => Converts boolean to Option
+  - [x] getOrElse => extracts the value from an option, and returns a default value
+        instead of none
+  - [x] fold => receives 2 callbacks, the first one defines what to do with the none result,
+        the second defines what to do with the some result
 - [x] Either:
   - [x] left & right
-  - [ ] fromOption
+  - [x] fromOption
   - [ ] map
   - [ ] mapLeft
+  - [ ] filter
+  - [ ] filterOrElse
   - [ ] fold
 - [x] TaskEither:
   - [x] tryCatch => Wraps a promise that can be rejected into a promise that can never be rejected and that returns an Either

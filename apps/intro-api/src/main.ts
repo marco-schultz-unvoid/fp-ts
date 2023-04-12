@@ -6,7 +6,7 @@
 import * as express from 'express';
 import * as path from 'path';
 import { getPersonByName } from './app/section01_option/01_option';
-import { divide } from './app/section02_either/02_either';
+import { divide } from './app/section02_either/01_either';
 import { getCharacters } from './app/section03_task/02_taskEither';
 
 const app = express();

@@ -33,5 +33,8 @@ export const sayHi = (req: Request, res: Response) =>
 /**
  * Extra: Task is not just a type, it is a concept called Monad in functional programming
  *
+ * Monad is a complicated concept, but basically, it is a type and a set of functions that
+ * helps us operate over that type.
+ *
  * https://en.wikipedia.org/wiki/Monad_(functional_programming)
  */
