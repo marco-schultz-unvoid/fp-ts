@@ -1,5 +1,6 @@
 /*
-  In this example, we'll use pipe to have a more functional code that looks better.
+  In this example, we'll refactor the previous one using pipe to have a more functional 
+  code that looks better.
 
   fold => receives 2 callbacks as params, the first one defines what to do with the `none` 
   result, the second defines what to do with the `some` result
@@ -27,10 +28,12 @@ const PEOPLE: Person[] = [
 */
 const executeGetPersonByName = (name: string): O.Option<Person> =>
   // Function from fp-ts Array module that helps us search an array, returning an Option
-  A.findFirst((person: Person) => person.name === name)(PEOPLE);
+  A.findFirst(
+    (person: Person) => person.name.toLowerCase() === name.toLowerCase()
+  )(PEOPLE);
 
 /* Request handler that sends null or the Person as a response */
-export const getPersonByName = (req: Request, res: Response) =>
+export const getPersonByNamePipe = (req: Request, res: Response) =>
   pipe(
     req.params.name,
     executeGetPersonByName,

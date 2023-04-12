@@ -12,11 +12,13 @@
 - [x] Either:
   - [x] left & right
   - [x] fromOption
-  - [ ] map
-  - [ ] mapLeft
+  - [x] fromPredicate
+  - [x] map => maps the right result of an either, but keeps the left, returning a new either
+  - [x] mapLeft => maps the left result of an either, but keeps the left, returning a new
+        either
   - [ ] filter
   - [ ] filterOrElse
-  - [ ] fold
+  - [x] fold
 - [x] TaskEither:
   - [x] tryCatch => Wraps a promise that can be rejected into a promise that can never be rejected and that returns an Either
   - [ ] tryCatchK => Converts a function returning a Promise to one returning a TaskEither
